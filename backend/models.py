@@ -11,6 +11,7 @@ class Incident(Base):
     status = Column(String, default="active")
     reported_at = Column(DateTime, default=datetime.utcnow)
     description = Column(String)
+    ai_plan = Column(String, nullable=True)
 
 class CrowdData(Base):
     __tablename__ = "crowd_data"

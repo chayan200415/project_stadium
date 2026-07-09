@@ -37,7 +37,7 @@ export default function Chat() {
     <div className="h-[calc(100vh-8rem)] flex flex-col">
       <h2 className="text-3xl font-bold tracking-tight mb-4">AI Fan Assistant</h2>
       <Card className="flex-1 flex flex-col overflow-hidden">
-        <CardContent className="flex-1 overflow-y-auto p-4 space-y-4">
+        <div className="flex-1 overflow-y-auto p-4 space-y-4" role="log" aria-label="Chat messages">
           {messages.map((msg, i) => (
             <motion.div 
               initial={{opacity: 0, y: 10}} animate={{opacity: 1, y: 0}}
@@ -52,16 +52,25 @@ export default function Chat() {
             </motion.div>
           ))}
           {loading && <div className="text-muted-foreground text-sm ml-12 animate-pulse">StadiumGPT is thinking...</div>}
-        </CardContent>
+        </div>
         <div className="p-4 bg-card border-t border-border flex gap-2">
           <Input 
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-            placeholder="Ask about gates, food, restrooms..."
+            placeholder="Type your message..."
+            aria-label="Message input"
+            disabled={loading}
             className="flex-1 bg-secondary/50 border-none"
           />
-          <Button onClick={sendMessage} disabled={loading}><Send size={18} className="mr-2"/> Send</Button>
+          <button
+            onClick={sendMessage}
+            disabled={loading}
+            aria-label="Send message"
+            className="h-10 w-10 bg-primary text-primary-foreground rounded-lg flex items-center justify-center hover:bg-primary/90 transition-colors disabled:opacity-50"
+          >
+            <Send size={18}/>
+          </button>
         </div>
       </Card>
     </div>

@@ -15,7 +15,7 @@ const navItems = [
 
 export function Sidebar() {
   return (
-    <div className="w-64 border-r bg-card h-full flex flex-col p-4 shadow-xl z-10">
+    <aside className="w-64 border-r bg-card h-full flex flex-col p-4 shadow-xl z-10" aria-label="Sidebar Navigation">
       <div className="flex items-center space-x-2 mb-8 px-2">
         <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
           <span className="font-bold text-primary-foreground text-xl">S</span>
@@ -23,7 +23,7 @@ export function Sidebar() {
         <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">StadiumGPT</h1>
       </div>
       
-      <nav className="flex-1 space-y-2">
+      <nav className="flex-1 space-y-2" aria-label="Main Menu">
         {navItems.map((item) => (
           <NavLink
             key={item.path}
@@ -55,6 +55,6 @@ export function Sidebar() {
           <span>Settings</span>
         </NavLink>
       </div>
-    </div>
+    </aside>
   );
 }

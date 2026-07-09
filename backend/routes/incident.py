@@ -16,15 +16,14 @@ def report_incident(incident: IncidentCreate, db: Session = Depends(get_db)):
     db_incident = Incident(
         type=incident.type,
         location=incident.location,
-        description=incident.description
+        description=incident.description,
+        ai_plan=ai_plan
     )
     db.add(db_incident)
     db.commit()
     db.refresh(db_incident)
 
-    # Convert to Pydantic and attach plan (not saved to DB in this MVP to save space)
     response = IncidentResponse.from_orm(db_incident)
-    response.ai_plan = ai_plan
     return response
 
 @router.get("/", response_model=list[IncidentResponse])

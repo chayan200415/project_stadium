@@ -1,6 +1,7 @@
 import os
 import google.generativeai as genai
 from dotenv import load_dotenv
+from functools import lru_cache
 
 load_dotenv()
 
@@ -8,6 +9,7 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 model = genai.GenerativeModel('gemini-2.5-flash')
 
+@lru_cache(maxsize=128)
 def generate_response(prompt: str) -> str:
     try:
         response = model.generate_content(prompt)

@@ -1,18 +1,18 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional, List
 from datetime import datetime
 
 class ChatRequest(BaseModel):
-    message: str
-    language: str = "English"
+    message: str = Field(..., min_length=1, max_length=1000)
+    language: str = Field("English", max_length=50)
 
 class ChatResponse(BaseModel):
     response: str
 
 class IncidentCreate(BaseModel):
-    type: str
-    location: str
-    description: str
+    type: str = Field(..., min_length=2, max_length=100)
+    location: str = Field(..., min_length=2, max_length=100)
+    description: str = Field(..., min_length=5, max_length=1000)
 
 class IncidentResponse(BaseModel):
     id: int
