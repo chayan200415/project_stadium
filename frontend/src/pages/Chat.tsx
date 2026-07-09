@@ -14,7 +14,7 @@ export default function Chat() {
 
   const sendMessage = async () => {
     if (!input.trim()) return;
-    const newMsgs = [...messages, {role: 'user', content: input}];
+    const newMsgs = [...messages, {role: 'user' as const, content: input}];
     setMessages(newMsgs);
     setInput('');
     setLoading(true);
@@ -26,9 +26,9 @@ export default function Chat() {
         body: JSON.stringify({ message: input, language: 'English' })
       });
       const data = await res.json();
-      setMessages([...newMsgs, {role: 'bot', content: data.response}]);
+      setMessages([...newMsgs, {role: 'bot' as const, content: data.response}]);
     } catch (e) {
-      setMessages([...newMsgs, {role: 'bot', content: 'Sorry, I encountered an error.'}]);
+      setMessages([...newMsgs, {role: 'bot' as const, content: 'Sorry, I encountered an error.'}]);
     }
     setLoading(false);
   };
