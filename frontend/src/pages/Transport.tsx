@@ -6,7 +6,7 @@ export default function Transport() {
   const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/transport/')
+    fetch('https://project-stadium.onrender.com/api/transport/')
       .then(res => res.json())
       .then(setData);
   }, []);

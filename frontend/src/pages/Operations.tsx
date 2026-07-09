@@ -12,14 +12,14 @@ export default function Operations() {
   const [form, setForm] = useState({ type: '', location: '', description: '' });
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/incident/')
+    fetch('https://project-stadium.onrender.com/api/incident/')
       .then(res => res.json())
       .then(setIncidents);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await fetch('http://localhost:8000/api/incident/', {
+    const res = await fetch('https://project-stadium.onrender.com/api/incident/', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(form)

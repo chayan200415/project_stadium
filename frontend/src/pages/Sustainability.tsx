@@ -7,11 +7,11 @@ export default function Sustainability() {
   const [insight, setInsight] = useState("Analyzing metrics...");
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/sustainability/')
+    fetch('https://project-stadium.onrender.com/api/sustainability/')
       .then(res => res.json())
       .then(setData);
     
-    fetch('http://localhost:8000/api/sustainability/insight')
+    fetch('https://project-stadium.onrender.com/api/sustainability/insight')
       .then(res => res.json())
       .then(d => setInsight(d.insight));
   }, []);

@@ -6,7 +6,7 @@ export default function Dashboard() {
   const [summary, setSummary] = useState("Loading AI summary...");
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/dashboard/summary')
+    fetch('https://project-stadium.onrender.com/api/dashboard/summary')
       .then(res => res.json())
       .then(data => setSummary(data.summary))
       .catch(() => setSummary("Failed to load summary."));

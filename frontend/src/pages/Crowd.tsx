@@ -8,11 +8,11 @@ export default function Crowd() {
   const [insight, setInsight] = useState("Analyzing crowd data...");
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/crowd/')
+    fetch('https://project-stadium.onrender.com/api/crowd/')
       .then(res => res.json())
       .then(setData);
     
-    fetch('http://localhost:8000/api/crowd/insight')
+    fetch('https://project-stadium.onrender.com/api/crowd/insight')
       .then(res => res.json())
       .then(d => setInsight(d.insight));
   }, []);
