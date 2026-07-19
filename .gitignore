@@ -14,6 +14,8 @@ __pycache__/
 venv/
 *.sqlite
 *.sqlite3
+*.db
+test_stadium.db
 
 # OS
 .DS_Store

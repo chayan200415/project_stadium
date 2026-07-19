@@ -1,4 +1,12 @@
+"""
+Central API router for StadiumGPT.
+
+Aggregates all feature routers into a single API router with
+organized prefixes and OpenAPI tags for documentation.
+"""
+
 from fastapi import APIRouter
+
 from backend.routes import chat, crowd, incident, transport, sustainability, navigation, dashboard
 
 api_router = APIRouter()

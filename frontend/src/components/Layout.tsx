@@ -10,7 +10,7 @@ export function Layout() {
       <Sidebar />
       <div className="flex-1 flex flex-col h-full relative">
         <TopNavbar />
-        <main className="flex-1 overflow-auto p-6 scroll-smooth">
+        <main id="main-content" role="main" aria-label="Main content area" className="flex-1 overflow-auto p-6 scroll-smooth">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}

@@ -1,0 +1,1 @@
+"""StadiumGPT API Routes package."""
